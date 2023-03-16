@@ -1,8 +1,8 @@
 package ru.ibs.appline.first_project;
 
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +47,7 @@ public class BusinessTrips {
         driver.findElement(By.xpath("//input[@name='_username']")).sendKeys("Irina Filippova");
         driver.findElement(By.xpath("//input[@name='_password']")).sendKeys("testing");
         driver.findElement(By.xpath("//button[@name='_submit']")).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//div[@class='row']")).isDisplayed());
+        Assertions.assertTrue(driver.findElement(By.xpath("//div[@class='row']")).isDisplayed());
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='row']"))));
 
 
@@ -63,7 +63,7 @@ public class BusinessTrips {
         constList.click();
 
 //видим всплывающее меню и проверяем, что оно появилось прежде чем идти дальше.
-        Assert.assertTrue(driver.findElement(
+        Assertions.assertTrue(driver.findElement(
                 By.xpath("//ul[contains(@class, 'main-menu')]/li/a/span[text()='Расходы']/" +
                         "ancestor::li//ul[@class='dropdown-menu menu_level_1']")).isDisplayed());
         wait.until(ExpectedConditions.visibilityOf(constList.findElement(By.xpath(
@@ -75,15 +75,15 @@ public class BusinessTrips {
 
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(
                 "//a[@title='Создать командировку']"))));
-        Assert.assertTrue(driver.findElement(By.xpath("//h1[@class='oro-subtitle']")).isDisplayed());
+        Assertions.assertTrue(driver.findElement(By.xpath("//h1[@class='oro-subtitle']")).isDisplayed());
 
 // Проверяем наличие на странице заголовка "Создать командировку"
 
-        Assert.assertTrue(driver.findElement(By.xpath("//a[@class='btn back icons-holder-text ']"))
+        Assertions.assertTrue(driver.findElement(By.xpath("//a[@class='btn back icons-holder-text ']"))
                 .isDisplayed());
         WebElement bussinesTripButton = driver.findElement(By.xpath(
                 "//a[@class='btn back icons-holder-text ']"));
-        Assert.assertTrue(bussinesTripButton.isDisplayed() && bussinesTripButton.getText().
+        Assertions.assertTrue(bussinesTripButton.isDisplayed() && bussinesTripButton.getText().
                 contains("Создать командировку"));
         driver.findElement(By.xpath(
                 "//div[@data-layout='separate']/div/div/a[text()='Создать командировку']")).click();
@@ -164,10 +164,10 @@ public class BusinessTrips {
 
 //Проверить, что на странице появилось сообщение: "Список командируемых сотрудников не может быть пустым"
 
-        Assert.assertTrue(driver.findElement(By.xpath(
+        Assertions.assertTrue(driver.findElement(By.xpath(
                 "//span[@class='validation-failed'][contains(text(), 'Список')]" +
                         "/ancestor::div//label[text() = 'Командированные сотрудники']")).isDisplayed());
-        Assert.assertEquals("Список командируемых сотрудников не может быть пустым",
+        Assertions.assertEquals("Список командируемых сотрудников не может быть пустым",
                 driver.findElement(By.xpath(
                         "//span[@class='validation-failed'][contains(text(), 'Список')]")).getText());
 
