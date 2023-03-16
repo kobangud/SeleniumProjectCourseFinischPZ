@@ -9,7 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!-- В данном блоке мы задаем параметры проекта и переменные для библиотек  -->
+        <!-- В данном блоке мы задаем параметры проекта и переменные для библиотек, для удобства версии меняем
+        в одном месте и далее через переменную менятеся во всех параметрах -->
 
         <!-- Encoding -->
         <encoding.type>UTF-8</encoding.type>
@@ -45,7 +46,12 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
