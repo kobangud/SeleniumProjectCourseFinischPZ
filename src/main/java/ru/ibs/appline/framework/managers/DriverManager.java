@@ -8,6 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
+import static ru.ibs.appline.framework.properties.TestProperties.getInstance;
 
 
 /**
@@ -16,7 +17,7 @@ import static java.lang.System.setProperty;
 public class DriverManager {
 
     private static WebDriver driver;
-    private static Properties properties = TestProperties.getInstance().getProperties();
+    private static final Properties properties = getInstance().getProperties();
 
     public static WebDriver getWebDriver() {
         if (driver == null) {
@@ -26,8 +27,9 @@ public class DriverManager {
     }
 
     public static void iniDriver() {
-        driver = new ChromeDriver();
+
         setProperty(properties.getProperty("WEB_DRIVER"), properties.getProperty("WEB_DRIVER_PATH"));
+        driver = new ChromeDriver();
         String baseUrl = properties.getProperty("HOSTNAME");
         driver.get(baseUrl);
         driver.manage().window().maximize();

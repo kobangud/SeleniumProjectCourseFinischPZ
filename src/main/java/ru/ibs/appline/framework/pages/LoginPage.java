@@ -28,7 +28,7 @@ public class LoginPage extends BasePage {
 
     }
 
-    public void submitClick(){
+    public void submitClickInput(){
         submitBtn.click();
         wait.until(ExpectedConditions.visibilityOf(subtitle));
 

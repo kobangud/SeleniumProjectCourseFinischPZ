@@ -16,7 +16,7 @@ import static java.lang.System.setProperty;
 public class BaseTests {
     protected WebDriver driver= DriverManager.getWebDriver();
     protected WebDriverWait wait;
-    private Properties properties = TestProperties.getInstance().getProperties();
+    private final Properties properties = TestProperties.getInstance().getProperties();
 
     @BeforeEach
     public void before()  {

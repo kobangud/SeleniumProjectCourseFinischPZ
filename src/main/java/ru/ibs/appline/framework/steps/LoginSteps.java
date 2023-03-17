@@ -6,7 +6,7 @@ public class LoginSteps {
     public MainPageSteps login(String login, String password){
         LoginPage loginPage = new LoginPage();
         loginPage.logPassFormInput(login,password);
-        loginPage.submitClick();
+        loginPage.submitClickInput();
         return  new MainPageSteps();
     }
 

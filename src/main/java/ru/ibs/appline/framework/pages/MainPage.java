@@ -15,6 +15,8 @@ public class MainPage extends BasePage {
     private WebElement triaps;
 
 
+
+
     //    вебэлемент "Расходы"
     public void costsClick() {
         costsBtn.click();
