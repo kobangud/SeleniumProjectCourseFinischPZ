@@ -5,8 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.ibs.appline.framework.managers.DriverManager;
-import ru.ibs.appline.framework.properties.TestProperties;
+import ru.ibs.appline.framework.second_project.managers.DriverManager;
+import ru.ibs.appline.framework.second_project.properties.TestProperties;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
