@@ -78,15 +78,16 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameMenu - имя веб элемента, поля ввода
      */
 
-    public void selectCreateTravelPage(String nameMenu) {
+    public SelectCreateTravelPage selectCreateTravelPage(String nameMenu) {
         for (WebElement itemMenu : menuListSubdivision) {
             if (itemMenu.getText().contains(nameMenu)) {
                 itemMenu.click();
-                return;
+                return this;
             }
 
         }
         Assertions.fail("меню с текстом" + nameMenu + "не найдено на странице");
+        return this;
     }
 
     /**
@@ -95,15 +96,16 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameMenu - имя веб элемента, поля ввода
      */
 
-    public void selectListSubdivisionByText(String nameMenu) {
+    public SelectCreateTravelPage selectListSubdivisionByText(String nameMenu) {
         for (WebElement itemMenu : listSubdivision) {
             if (itemMenu.getText().contains(nameMenu)) {
                 waitUtilElementToBeVisible(itemMenu).click();
-                return;
+                return this;
             }
 
         }
         Assertions.fail("меню с текстом" + nameMenu + "не найдено на странице");
+        return this;
     }
 
     /**
@@ -112,15 +114,16 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameSubMenu - имя веб элемента, поля ввода
      */
 
-    public void selectCheckBoxTask(String nameSubMenu) {
+    public SelectCreateTravelPage selectCheckBoxTask(String nameSubMenu) {
         for (WebElement itemMenu : orderingTickets) {
             if (itemMenu.getText().contains(nameSubMenu)) {
                 waitUtilElementToBeVisible(itemMenu).click();
-                return;
+                return pageManager.getSelectCreateTravelPage();
             }
 
         }
         Assertions.fail("Подменю с текстом" + nameSubMenu + "не найдено на странице");
+        return this;
     }
 
     /**
@@ -134,10 +137,12 @@ public class SelectCreateTravelPage extends BasePage {
 
     /**
      * Метод "Раскрыть список организаций"
+     * Второй проверкой проверяем загрузку списка
      */
 
     public SelectCreateTravelPage openListSelectOrganization() {
         wait.until(ExpectedConditions.visibilityOf(fieldCompany)).click();
+        //Проверяет, прогрузилась ли форма
         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath(
                 "//li[@class='select2-searching'][contains(text(), 'Поиск')]"))));
         return this;
@@ -149,16 +154,17 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameSubMenu - имя веб элемента, поля ввода
      */
 
-    public void selectOrganization(String nameSubMenu) {
+    public SelectCreateTravelPage selectOrganization(String nameSubMenu) {
 
         for (WebElement itemMenu : selectFieldCompany) {
             if (itemMenu.getText().contains(nameSubMenu)) {
                 waitUtilElementToBeClickable(itemMenu).click();
-                return;
+                return this;
             }
 
         }
         Assertions.fail("Подменю с текстом" + nameSubMenu + "не найдено на странице");
+        return this;
     }
 
     /**

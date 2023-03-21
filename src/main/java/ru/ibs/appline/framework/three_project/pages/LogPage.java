@@ -1,19 +1,14 @@
 package ru.ibs.appline.framework.three_project.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LogPage extends BasePage {
 
 
     protected WebDriverWait wait;
-    @FindBy(xpath = "//div[@class='title-box']")
-    private WebElement loginForma;
 
     @FindBy(xpath = "//input[@name='_username']")
     private WebElement logInput;
@@ -26,27 +21,23 @@ public class LogPage extends BasePage {
 
     public LogPage() {
 
-        PageFactory.initElements(drManager.getDriver(),this);
+        PageFactory.initElements(drManager.getDriver(), this);
 
     }
 
-
-    public void loginForm() {
-
-        // Проверяет, загрузилась ли форма
-//        Assertions.assertTrue((BooleanSupplier) loginForma);
-//        wait.until(ExpectedConditions.visibilityOf(loginForma));
-//        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(
-//                "//div[@class='title-box']"))));
+    public LogPage loginForm() {
 
         //Вводим логин пароль
-
         logInput.sendKeys("Irina Filippova");
         passInput.sendKeys("testing");
+        return pageManager.getLogPage();
 
-        //Жмем кнопку войти
+    }
+
+    //Жмем кнопку войти
+    public LoadingOpenPage inputBtn() {
         btnClick.click();
-
+        return pageManager.getLoadingOpenPage();
     }
 
 }

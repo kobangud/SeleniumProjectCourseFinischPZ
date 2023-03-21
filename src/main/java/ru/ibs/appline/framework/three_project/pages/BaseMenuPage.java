@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class BaseMenuPage extends BasePage{
+public class BaseMenuPage extends BasePage {
     @FindBy(xpath = "//ul[contains(@class, 'multilevel')]/li[contains(@class, 'dropdown')]")
     private List<WebElement> listBaseMenu;
 
@@ -16,9 +16,9 @@ public class BaseMenuPage extends BasePage{
     @FindBy(xpath = "//div[@class='row']/div[contains(@class, 'pull')]")
     private List<WebElement> listPulMenu;
 
-    public BaseMenuPage () {
+    public BaseMenuPage() {
 
-        PageFactory.initElements(drManager.getDriver(),this);
+        PageFactory.initElements(drManager.getDriver(), this);
 
     }
 
@@ -27,40 +27,43 @@ public class BaseMenuPage extends BasePage{
      *
      * @param nameMenu - параметр (текст), который будет передан пользователем (наименование меню)
      */
-
-    public void selectBaseMenuByText(String nameMenu) {
+    //Вкладка расходы
+    public BaseMenuPage selectBaseMenuByText(String nameMenu) {
         for (WebElement itemMenu : listBaseMenu) {
             if (itemMenu.getText().contains(nameMenu)) {
                 itemMenu.click();
-                return;
+                return pageManager.getBaseMenuPage();
             }
 
         }
         Assertions.fail("меню с текстом" + nameMenu + "не найдено на странице");
+        return pageManager.getBaseMenuPage();
     }
 
-
-    public void selectSubMenuByText(String nameSubMenu) {
+    //Вкладка расходы - командировки
+    public LoadingOpenPage selectSubMenuByText(String nameSubMenu) {
         for (WebElement itemMenu : listSubMenu) {
             if (itemMenu.getText().contains(nameSubMenu)) {
                 itemMenu.click();
-                return;
+                return pageManager.getLoadingOpenPage();
             }
 
         }
         Assertions.fail("Подменю с текстом" + nameSubMenu + "не найдено на странице");
-
-
+        return pageManager.getLoadingOpenPage();
     }
-    public void selectPulMenuByText(String namePulMenu) {
+
+    //Находим на 2ой панели Кнопку "Создать командировку"
+    public LoadingOpenPage selectPulMenuByText(String namePulMenu) {
         for (WebElement itemMenu : listPulMenu) {
             if (itemMenu.getText().contains(namePulMenu)) {
                 itemMenu.click();
-                return;
+                return pageManager.getLoadingOpenPage();
             }
 
         }
         Assertions.fail("Подменю с текстом" + namePulMenu + "не найдено на странице");
+        return pageManager.getLoadingOpenPage();
     }
 }
 

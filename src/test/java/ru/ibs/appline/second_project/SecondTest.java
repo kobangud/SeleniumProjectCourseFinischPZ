@@ -18,7 +18,7 @@ public class SecondTest {
 
     @Test
     public void test() {
-//        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_for_111_chrome.exe");
+//        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 //        WebDriver driver = new ChromeDriver();
 //
 //        WebDriverWait wait = new WebDriverWait(driver, 10);

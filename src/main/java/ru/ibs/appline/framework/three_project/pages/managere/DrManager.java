@@ -1,20 +1,18 @@
 package ru.ibs.appline.framework.three_project.pages.managere;
 
-import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.ibs.appline.framework.three_project.pages.utils.PropConst;
 
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
-import static java.lang.Thread.sleep;
 
 public class DrManager {
 
     private WebDriver driver;
-
+    private TestPropManager testPropManager = TestPropManager.getInstance();
 
     private static DrManager INSTANCE = null;
 
@@ -49,7 +47,7 @@ public class DrManager {
      * Метод инициализирующий веб драйвер
      */
     private void initDriver() {
-        setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_for_111_chrome.exe");
+        setProperty(testPropManager.getProperty(PropConst.TYPE_BROWSER), testPropManager.getProperty(PropConst.PATH_CHROME_DRIVER_WINDOWS));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 

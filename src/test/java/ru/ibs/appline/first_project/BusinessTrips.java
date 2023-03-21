@@ -20,7 +20,7 @@ public class BusinessTrips {
 
     @Test
     public void trips() throws InterruptedException {
-        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_for_111_chrome.exe");
+        setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);

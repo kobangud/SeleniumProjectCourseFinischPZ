@@ -6,11 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.ibs.appline.framework.three_project.pages.managere.DrManager;
+import ru.ibs.appline.framework.three_project.pages.managere.PageManager;
 
 public class BasePage {
     DrManager drManager = DrManager.getDrManager();
     WebDriver driver = drManager.getDriver();
-    protected WebDriverWait wait = new WebDriverWait(drManager.getDriver(), 10, 1000);
+    protected WebDriverWait wait = new WebDriverWait(drManager.getDriver(), 20, 1000);
+    PageManager pageManager = PageManager.getInstance();
 
 
     public BasePage() {
@@ -23,10 +25,6 @@ public class BasePage {
      *
      * @param element - веб-элемент который требует проверки clickable
      * @return WebElement - возвращаем тот же веб элемент что был передан в функцию
-     * @see WebDriverWait
-     * @see org.openqa.selenium.support.ui.FluentWait
-     * @see org.openqa.selenium.support.ui.Wait
-     * @see ExpectedConditions
      */
     protected WebElement waitUtilElementToBeClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
