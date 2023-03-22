@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.ibs.appline.framework.three_project.pages.managere.TestPropManager;
+import ru.ibs.appline.framework.three_project.pages.utils.PropConst;
 
 public class LogPage extends BasePage {
 
@@ -24,12 +26,12 @@ public class LogPage extends BasePage {
         PageFactory.initElements(drManager.getDriver(), this);
 
     }
-
+    TestPropManager propManager = TestPropManager.getInstance();
     public LogPage loginForm() {
 
         //Вводим логин пароль
-        logInput.sendKeys("Irina Filippova");
-        passInput.sendKeys("testing");
+        logInput.sendKeys(propManager.getProperty(PropConst.LOGIN));
+        passInput.sendKeys(propManager.getProperty(PropConst.PASSWORD));
         return pageManager.getLogPage();
 
     }
