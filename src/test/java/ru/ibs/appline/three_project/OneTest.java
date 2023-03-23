@@ -1,10 +1,16 @@
 package ru.ibs.appline.three_project;
 
 
+import io.qameta.allure.Attachment;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import ru.ibs.appline.framework.three_project.pages.utils.AllureListener;
+
+@ExtendWith(AllureListener.class)
+@DisplayName(value = "Сценарий для Allure репорта")
 
 public class OneTest extends BaseTests{
-
 
     @Test
     public void trips() throws InterruptedException {
@@ -23,7 +29,7 @@ public class OneTest extends BaseTests{
                 .openListOrganization()
                 .openListSelectOrganization()
                 .selectOrganization("Хром")
-                .selectCheckBoxTask("Заказ билетов")
+                .selectCheckBoxTask("Заказ билетов1")
                 .fillField("Город выбытия", "Москва")
                 .fillField("Город прибытия", "Тула")
                 .fillField("Планируемая дата выезда", "20.04.2023")

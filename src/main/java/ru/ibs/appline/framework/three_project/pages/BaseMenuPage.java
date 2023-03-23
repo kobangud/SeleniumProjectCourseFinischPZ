@@ -1,5 +1,6 @@
 package ru.ibs.appline.framework.three_project.pages;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +29,7 @@ public class BaseMenuPage extends BasePage {
      * @param nameMenu - параметр (текст), который будет передан пользователем (наименование меню)
      */
     //Вкладка расходы
+    @Step ("Выбираем меню '{nameMenu}'")
     public BaseMenuPage selectBaseMenuByText(String nameMenu) {
         for (WebElement itemMenu : listBaseMenu) {
             if (itemMenu.getText().contains(nameMenu)) {
@@ -36,11 +38,12 @@ public class BaseMenuPage extends BasePage {
             }
 
         }
-        Assertions.fail("меню с текстом" + nameMenu + "не найдено на странице");
+        Assertions.fail("меню с текстом " + nameMenu + " не найдено на странице");
         return pageManager.getBaseMenuPage();
     }
 
     //Вкладка расходы - командировки
+    @Step ("Выбираем подменю '{nameSubMenu}'")
     public LoadingOpenPage selectSubMenuByText(String nameSubMenu) {
         for (WebElement itemMenu : listSubMenu) {
             if (itemMenu.getText().contains(nameSubMenu)) {
@@ -49,11 +52,12 @@ public class BaseMenuPage extends BasePage {
             }
 
         }
-        Assertions.fail("Подменю с текстом" + nameSubMenu + "не найдено на странице");
+        Assertions.fail("Подменю с текстом " + nameSubMenu + " не найдено на странице");
         return pageManager.getLoadingOpenPage();
     }
 
     //Находим на 2ой панели Кнопку "Создать командировку"
+    @Step ("Находим кнопку '{namePulMenu}'")
     public LoadingOpenPage selectPulMenuByText(String namePulMenu) {
         for (WebElement itemMenu : listPulMenu) {
             if (itemMenu.getText().contains(namePulMenu)) {
@@ -62,7 +66,7 @@ public class BaseMenuPage extends BasePage {
             }
 
         }
-        Assertions.fail("Подменю с текстом" + namePulMenu + "не найдено на странице");
+        Assertions.fail("Подменю с текстом " + namePulMenu + " не найдено на странице");
         return pageManager.getLoadingOpenPage();
     }
 }
