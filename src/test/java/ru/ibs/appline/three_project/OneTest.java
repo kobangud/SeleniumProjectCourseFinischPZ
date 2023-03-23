@@ -1,7 +1,5 @@
 package ru.ibs.appline.three_project;
 
-
-import io.qameta.allure.Attachment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +11,8 @@ import ru.ibs.appline.framework.three_project.pages.utils.AllureListener;
 public class OneTest extends BaseTests{
 
     @Test
-    public void trips() throws InterruptedException {
+    @DisplayName(value = "Командировки")
+    public void tripsTest() throws InterruptedException {
         pageManager.getLoadingOpenPage()
                 .loadingLoginForm()
                 .loginForm()
@@ -29,7 +28,7 @@ public class OneTest extends BaseTests{
                 .openListOrganization()
                 .openListSelectOrganization()
                 .selectOrganization("Хром")
-                .selectCheckBoxTask("Заказ билетов1")
+                .selectCheckBoxTask("Заказ билетов1")   //файлится для скрина
                 .fillField("Город выбытия", "Москва")
                 .fillField("Город прибытия", "Тула")
                 .fillField("Планируемая дата выезда", "20.04.2023")

@@ -27,9 +27,11 @@
         <!-- Dependencies Version (задаем переменные для версий библиотек блока Dependencies )-->
         <selenium-java.version>3.141.59</selenium-java.version>
         <junit.version>5.9.2</junit.version>
+        <junit-platform.version>1.9.2</junit-platform.version>
         <allure-junit5.version>2.16.1</allure-junit5.version>
         <aspectj.version>1.9.19</aspectj.version>
         <allure-maven.version>2.10.0</allure-maven.version>
+        <maven-compiler.version>3.8.1</maven-compiler.version>
 
 
     </properties>
@@ -53,7 +55,7 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-engine</artifactId>
-            <version>1.9.2</version>
+            <version>${junit-platform.version}</version>
 
         </dependency>
 
@@ -74,7 +76,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
