@@ -20,6 +20,7 @@ public class BaseTests {
 
     }
 
+
     @AfterEach
     public void closeDriver() {
 

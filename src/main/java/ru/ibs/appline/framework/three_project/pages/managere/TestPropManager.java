@@ -8,7 +8,6 @@ public class TestPropManager {
     private final Properties properties = new Properties();
     private static TestPropManager INSTANCE = null;
 
-
     public static TestPropManager getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new TestPropManager();

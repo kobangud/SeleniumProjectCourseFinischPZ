@@ -22,6 +22,7 @@ public class LoadingOpenPage extends BasePage {
 
     }
 
+
     //Проверяет загружена ли форма авторизации
     @Step("Проверяем загрузку формы авторизации")
     public LogPage loadingLoginForm() {

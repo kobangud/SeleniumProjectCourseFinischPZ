@@ -38,6 +38,7 @@ public class LogPage extends BasePage {
 
     }
 
+
     //Жмем кнопку войти
     @Step ("Жмем войти")
     public LoadingOpenPage inputBtn() {

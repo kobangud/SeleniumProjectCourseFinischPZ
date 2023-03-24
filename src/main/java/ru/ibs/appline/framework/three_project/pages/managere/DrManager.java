@@ -33,7 +33,6 @@ public class DrManager {
         return driver;
     }
 
-
     public void quitDriver() {
 
         if (driver != null) {

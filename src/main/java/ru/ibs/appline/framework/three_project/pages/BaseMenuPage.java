@@ -56,6 +56,7 @@ public class BaseMenuPage extends BasePage {
         return pageManager.getLoadingOpenPage();
     }
 
+
     //Находим на 2ой панели Кнопку "Создать командировку"
     @Step ("Находим кнопку '{namePulMenu}'")
     public LoadingOpenPage selectPulMenuByText(String namePulMenu) {

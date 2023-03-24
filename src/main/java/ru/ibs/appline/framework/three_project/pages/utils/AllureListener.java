@@ -24,7 +24,6 @@ public class AllureListener extends AllureJunit5 implements AfterTestExecutionCa
 //        getScreenshot();
 //    }
 
-
     @Override
     public void afterTestExecution(ExtensionContext extensionContext) throws Exception {
         if (extensionContext.getExecutionException().isPresent()) {

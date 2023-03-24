@@ -13,5 +13,4 @@ public class PropConst {
 
     public static final String PAGE_LOAD_TIMEOUT = "page.load.timeout";
 
-
 }
