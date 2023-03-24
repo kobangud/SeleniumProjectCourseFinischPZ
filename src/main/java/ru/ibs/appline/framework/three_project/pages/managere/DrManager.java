@@ -53,6 +53,7 @@ public class DrManager {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(testPropManager.getProperty(PropConst.BASE_URL));
 
     }
 

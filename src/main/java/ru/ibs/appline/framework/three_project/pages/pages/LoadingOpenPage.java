@@ -1,6 +1,5 @@
-package ru.ibs.appline.framework.three_project.pages;
+package ru.ibs.appline.framework.three_project.pages.pages;
 
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +23,7 @@ public class LoadingOpenPage extends BasePage {
 
 
     //Проверяет загружена ли форма авторизации
-    @Step("Проверяем загрузку формы авторизации")
+
     public LogPage loadingLoginForm() {
 
         waitUtilElementToBeVisible(loginForm);
@@ -33,7 +32,7 @@ public class LoadingOpenPage extends BasePage {
 
     //Проверяем, что псоле авторизации произошел переход на первую страницу
 
-    @Step("Открытие главной страницы после успешной авторизации")
+
     public BaseMenuPage checkOpenHomePage() {
 
         Assertions.assertEquals("Панель инструментов", drManager.getDriver().getTitle(),
@@ -42,7 +41,7 @@ public class LoadingOpenPage extends BasePage {
     }
 
     //Проверяет появилась ли кнопка Создать командировку
-    @Step("Переход на страницу - Командировки")
+
     public BaseMenuPage checkOpenTravelPage() {
 
         waitUtilElementToBeClickable(createField);
@@ -50,14 +49,14 @@ public class LoadingOpenPage extends BasePage {
     }
 
     //Проверяет открытие формы содания командировки
-    @Step("Переход на страницу - Создания Командировки")
+
     public SelectCreateTravelPage checkOpenTravelSubPage() {
 
         waitUtilElementToBeVisible(formField);
         return pageManager.getSelectCreateTravelPage();
     }
 
-    @Step("Сохраниние формы создания командировки")
+
     public SelectCreateTravelPage loadingCreateField() {
         waitUtilElementToBeVisible(loading);
         return pageManager.getSelectCreateTravelPage();

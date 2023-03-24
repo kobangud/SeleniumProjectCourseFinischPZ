@@ -1,4 +1,4 @@
-package ru.ibs.appline.framework.three_project.pages;
+package ru.ibs.appline.framework.three_project.pages.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

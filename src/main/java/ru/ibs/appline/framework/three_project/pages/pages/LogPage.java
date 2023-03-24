@@ -1,6 +1,5 @@
-package ru.ibs.appline.framework.three_project.pages;
+package ru.ibs.appline.framework.three_project.pages.pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -27,8 +26,9 @@ public class LogPage extends BasePage {
         PageFactory.initElements(drManager.getDriver(), this);
 
     }
+
     TestPropManager propManager = TestPropManager.getInstance();
-    @Step("Заполняем поля на форме регистрации")
+
     public LogPage loginForm() {
 
         //Вводим логин пароль
@@ -40,7 +40,7 @@ public class LogPage extends BasePage {
 
 
     //Жмем кнопку войти
-    @Step ("Жмем войти")
+
     public LoadingOpenPage inputBtn() {
         btnClick.click();
         return pageManager.getLoadingOpenPage();

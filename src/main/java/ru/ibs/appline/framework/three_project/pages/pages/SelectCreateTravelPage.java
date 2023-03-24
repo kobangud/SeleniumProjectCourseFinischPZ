@@ -1,9 +1,7 @@
-package ru.ibs.appline.framework.three_project.pages;
+package ru.ibs.appline.framework.three_project.pages.pages;
 
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -79,7 +77,7 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameMenu - имя веб элемента, поля ввода
      */
 
-    @Step("Выбираем меню '{nameMenu}'")
+
     public SelectCreateTravelPage selectCreateTravelPage(String nameMenu) {
         for (WebElement itemMenu : menuListSubdivision) {
             if (itemMenu.getText().contains(nameMenu)) {
@@ -98,7 +96,7 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameMenu - имя веб элемента, поля ввода
      */
 
-    @Step("Выбираем из подразделение '{nameMenu}'")
+
     public SelectCreateTravelPage selectListSubdivisionByText(String nameMenu) {
         for (WebElement itemMenu : listSubdivision) {
             if (itemMenu.getText().contains(nameMenu)) {
@@ -117,7 +115,7 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameSubMenu - имя веб элемента, поля ввода
      */
 
-    @Step("Выбираем меню '{nameSubMenu}'")
+
     public SelectCreateTravelPage selectCheckBoxTask(String nameSubMenu) {
         for (WebElement itemMenu : orderingTickets) {
             if (itemMenu.getText().contains(nameSubMenu)) {
@@ -134,7 +132,7 @@ public class SelectCreateTravelPage extends BasePage {
      * Метод "Открыть список оргазаций"
      */
 
-    @Step ("Нажимаем - Открыть список")
+
     public SelectCreateTravelPage openListOrganization() {
         wait.until(ExpectedConditions.visibilityOf(openListOrganizations)).click();
         return this;
@@ -145,7 +143,7 @@ public class SelectCreateTravelPage extends BasePage {
      * Второй проверкой проверяем загрузку списка
      */
 
-    @Step ("Раскрываем  список организаций")
+
     public SelectCreateTravelPage openListSelectOrganization() {
         wait.until(ExpectedConditions.visibilityOf(fieldCompany)).click();
         //Проверяет, прогрузилась ли форма
@@ -160,7 +158,7 @@ public class SelectCreateTravelPage extends BasePage {
      * @param nameSubMenu - имя веб элемента, поля ввода
      */
 
-    @Step("Выбираем из списка организацию - '{nameSubMenu}'")
+
     public SelectCreateTravelPage selectOrganization(String nameSubMenu) {
 
         for (WebElement itemMenu : selectFieldCompany) {
@@ -182,7 +180,7 @@ public class SelectCreateTravelPage extends BasePage {
      * @return RegistrationFormPage - т.е. остаемся на этой странице
      */
 
-    @Step("Заполняем поле '{nameField}'")
+
     public SelectCreateTravelPage fillField(String nameField, String value) {
 
         WebElement element = null;
@@ -218,10 +216,9 @@ public class SelectCreateTravelPage extends BasePage {
 
     /**
      * Клик по кнопке "Сохранить и закрыть"
-     *
      */
 
-    @Step ("Нажимаем на кнопку  - 'Сохранить и закрыть'")
+
     public SelectCreateTravelPage clickBtnSaveClose() {
         waitUtilElementToBeClickable(btnSaveClose).click();
         return this;
@@ -229,10 +226,9 @@ public class SelectCreateTravelPage extends BasePage {
 
     /**
      * Проверка общей ошибки незаполненного поля
-     *
      */
 
-    @Step ("Проверяем сообщение о том,  что  - 'Список командируемых сотрудников не может быть пустым'")
+
     public SelectCreateTravelPage checkErrorMessageAlert(String errMessage) {
 
         waitUtilElementToBeVisible(errorMessageAlert);

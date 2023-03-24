@@ -1,11 +1,13 @@
 package ru.ibs.appline.framework.three_project.pages.managere;
 
-import ru.ibs.appline.framework.three_project.pages.BaseMenuPage;
-import ru.ibs.appline.framework.three_project.pages.LoadingOpenPage;
-import ru.ibs.appline.framework.three_project.pages.LogPage;
-import ru.ibs.appline.framework.three_project.pages.SelectCreateTravelPage;
+import ru.ibs.appline.framework.three_project.pages.pages.BaseMenuPage;
+import ru.ibs.appline.framework.three_project.pages.pages.LoadingOpenPage;
+import ru.ibs.appline.framework.three_project.pages.pages.LogPage;
+import ru.ibs.appline.framework.three_project.pages.pages.SelectCreateTravelPage;
 
 public class PageManager {
+    private static PageManager pageManager;
+
     private static PageManager INSTANCE = null;
 
     private PageManager() {
@@ -60,5 +62,11 @@ public class PageManager {
         }
         return baseMenuPage;
     }
+    public static void quitPageManager() {
+        if (pageManager != null) {
+            pageManager = null;
+        }
+    }
+
 
 }
