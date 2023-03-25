@@ -27,10 +27,6 @@ public class HomePageStep {
     }
 
 
-    //В меню Каталог - выбираем подменю
-    @И("^В меню Каталог - выбираем подменю  '(.+)'$")
-    public void selectCatalogSubMenuByText(String nameMenu) {
-        pageManager.getHomePage().selectCatalogSubMenuByText(nameMenu);
-    }
+
 
 }
