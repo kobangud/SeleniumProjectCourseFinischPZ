@@ -19,31 +19,14 @@ public class BasePage {
 
     }
 
-    /**
-     * Явное ожидание состояния clickable элемента
-     *
-     * @param element - веб-элемент который требует проверки clickable
-     * @return WebElement - возвращаем тот же веб элемент что был передан в функцию
-     */
     protected WebElement waitUtilElementToBeClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    /**
-     * Явное ожидание того что элемент станет видемым
-     *
-     * @param element - веб элемент который мы ожидаем что будет  виден на странице
-     */
     protected WebElement waitUtilElementToBeVisible(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    /**
-     * Общий метод по заполнения полей ввода
-     *
-     * @param field - веб-элемент поле ввода
-     * @param value - значение вводимое в поле
-     */
     protected void fillInputField(WebElement field, String value) {
 
         waitUtilElementToBeClickable(field).click();
@@ -51,16 +34,6 @@ public class BasePage {
         field.sendKeys(value);
     }
 
-    /**
-     * Общий метод по заполнению полей с датой
-     *
-     * @param field - веб-элемент поле с датой
-     * @param value - значение вводимое в поле с датой
-     */
-    protected void fillDateField(WebElement field, String value) {
-
-        field.sendKeys(value, Keys.TAB);
-    }
 }
 
 
