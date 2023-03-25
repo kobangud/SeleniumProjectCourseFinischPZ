@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/scenario"},
         glue = {"ru.ibs.appline.framework.three_project.pages.steps"},
-        tags = {"@oneTest"},
+        tags = {"@oneTest", "@twoTest"},
         plugin = {"io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"}
 
 

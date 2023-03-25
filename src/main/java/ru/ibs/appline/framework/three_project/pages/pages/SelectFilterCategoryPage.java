@@ -1,6 +1,7 @@
 package ru.ibs.appline.framework.three_project.pages.pages;
 
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,7 +30,7 @@ public class SelectFilterCategoryPage extends BasePage {
     private List<WebElement> orderingCheckBox;
 
     // загрузка параметров фильтра
-    @FindBy(xpath = "//span[contains(@class, 'PageTitle_countSkeleton')]")
+    @FindBy(xpath = "//span[contains(@class, 'Skeleton')]")
     private WebElement loadingSelectAfter;
 
     // в поисковой выдаче не более 24 товаров
@@ -105,8 +106,12 @@ public class SelectFilterCategoryPage extends BasePage {
     //Прогрузка экрана результатов поиска
 
     public SelectFilterCategoryPage loadingAfterSelect() {
-        wait.until(ExpectedConditions.invisibilityOf(loadingSelectAfter));
-        return this;
+        try {
+            wait.until(ExpectedConditions.invisibilityOf(driver.findElement(
+                    By.xpath("//span[contains(@class, 'Skeleton')]"))));
+        } catch (NoSuchElementException e) {
+
+        }return this;
     }
 
 
@@ -117,12 +122,8 @@ public class SelectFilterCategoryPage extends BasePage {
             Assertions.assertTrue(quantityElements.getText().contains(count));
         }
         catch (NoSuchElementException e){
-            return this;
+
         }
-
-
-
-
         return this;
     }
 
