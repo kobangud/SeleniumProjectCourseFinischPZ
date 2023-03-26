@@ -2,7 +2,10 @@ package ru.ibs.appline.framework.three_project.pages.steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.bg.И;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.ibs.appline.framework.three_project.pages.managere.PageManager;
+import ru.ibs.appline.framework.three_project.pages.pages.SelectFilterCategoryPage;
 
 public class SelectFilterCategoryPageStep {
     PageManager pageManager = PageManager.getInstance();
@@ -51,6 +54,12 @@ public class SelectFilterCategoryPageStep {
     @И("^Сравниваем значение указаное в строке поиска с найденным$")
     public void doubleFindElement() {
         pageManager.getSelectFilter().doubleFindElement();
+    }
+
+
+    @И("^Проверяем найденное количество загрженных строк не более '(.+)'$")
+    public void OneElementQuantity(int number) {
+        pageManager.getSelectFilter().OneElementQuantity(number);
     }
 
 

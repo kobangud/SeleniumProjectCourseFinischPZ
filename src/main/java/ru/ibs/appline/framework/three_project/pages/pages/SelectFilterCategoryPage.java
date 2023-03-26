@@ -47,6 +47,10 @@ public class SelectFilterCategoryPage extends BasePage {
     @FindBy(xpath = "//input[@aria-label='Поиск']")
     private WebElement fieldFind;
 
+    @FindBy(xpath = "//div[contains(@class, 'ListingRenderer')]//h6[contains(@class, 'CardText_title')]")
+    private WebElement doubleFindEl;
+
+
     public SelectFilterCategoryPage() {
 
         PageFactory.initElements(drManager.getDriver(), this);
@@ -149,10 +153,18 @@ public class SelectFilterCategoryPage extends BasePage {
     // Сравниваем найденнное и сохраненное значение
     public SelectFilterCategoryPage doubleFindElement() {
 
-        wait.until(ExpectedConditions.visibilityOf((WebElement) nameElement)).getText().equals(resultFind);
+  Assertions.assertEquals(doubleFindEl.getText().trim(), resultFind,
+                "Наименования товаров не совпадают");
 
         return this;
     }
+
+    public SelectFilterCategoryPage OneElementQuantity (int number){
+        wait.until(ExpectedConditions.numberOfElementsToBe(
+                By.xpath("//div[contains(@class,'Card_row')]"),number));
+    return this;
+    }
+
 
 
 }
