@@ -4,17 +4,17 @@ import ru.ibs.appline.framework.three_project.pages.pages.HomePage;
 import ru.ibs.appline.framework.three_project.pages.pages.SelectFilterCategoryPage;
 
 public class PageManager {
-    private static PageManager pageManager;
 
-    private static PageManager INSTANCE = null;
+
+    private static PageManager pageManager = null;
 
     private PageManager() {
     }
     public static PageManager getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new PageManager();
+        if (pageManager == null) {
+            pageManager = new PageManager();
         }
-        return INSTANCE;
+        return pageManager;
     }
 
     private HomePage homePage;
@@ -50,6 +50,7 @@ public class PageManager {
     public static void quitPageManager() {
         if (pageManager != null) {
             pageManager = null;
+
         }
     }
 
